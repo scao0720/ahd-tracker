@@ -15,7 +15,7 @@
     </head>
     <body>
         <h3>Add new assumption</h3>
-       <form action="response.jsp" method="post">
+       <form action="create.jsp" method="post">
        <table border="0">
             <tr>
                 <td>Title:</td>
@@ -30,6 +30,6 @@
         <input type="reset" value="Reset" /><input type="submit" value="Submit"/>
          </form>
         <p>
-            <a href="index.jsp">Go back</a></p>
+            <a href="../index.jsp">Go back</a></p>
     </body>
 </html>

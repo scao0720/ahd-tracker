@@ -14,4 +14,4 @@
     VALUES ("${param.title}", "${param.body}", now())
 </sql:update>
 
-<% response.sendRedirect("index.jsp"); %>
+<% response.sendRedirect("../index.jsp"); %>

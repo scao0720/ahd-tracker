@@ -18,10 +18,10 @@
         <h2>Sabina's AHD Tracker</h2>
         <div> List of assumptions
         </div>
-        <sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"
+        <sql:setDataSource driver="com.mysql.jdbc.Driver"
                            url="jdbc:mysql://localhost/ahd"
                            user="root"  password=""/>
-        <sql:query var="result" dataSource="${db}">
+        <sql:query var="result">
             SELECT id, title from assumptions
         </sql:query>
 
@@ -35,11 +35,11 @@
             <c:forEach var="row" items="${result.rowsByIndex}">
                 <tr>
                     <td><c:out value="${row[0]}" /></td>
-                    <td><a href="show-assumption.jsp?id=${row[0]}"><c:out value="${row[1]}" /></a></td>
+                    <td><a href="assumptions/show.jsp?id=${row[0]}"><c:out value="${row[1]}" /></a></td>
                 </tr>
             </c:forEach>
         </table>
         <br>
-        <a href="add-assumption.jsp">Add new assumption</a>
+        <a href="assumptions/new.jsp">Add new assumption</a>
     </body>
 </html>

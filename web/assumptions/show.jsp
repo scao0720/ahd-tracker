@@ -1,6 +1,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
-<sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"
+<sql:setDataSource driver="com.mysql.jdbc.Driver"
                    url="jdbc:mysql://localhost/ahd"
                    user="root"  password=""/>
 
@@ -19,14 +19,16 @@
     </head>
     <body>
         <h1>Assumption #${param.id}</h1>
-    <sql:query var="result" dataSource="${db}">
-        SELECT title, body, created from assumptions
+    <sql:query var="result">
+        SELECT title, body, created from assumptions where id = ${param.id}
     </sql:query>
+    <p><strong>${result.getRows()[0].title}</strong></p>
+    <p>${result.getRows()[0].body}</p>
+    
     <h4>Associated hypotheses</h4>
-    <sql:query var="result" dataSource="${db}">
-        SELECT id, title from hypotheses where assumption_id = ${param.id}
+    <sql:query var="result">
+        SELECT id, body from hypotheses where assumption_id = ${param.id}
     </sql:query>
-
     <table border="1">
         <!-- column headers -->
         <tr>
@@ -37,11 +39,11 @@
         <c:forEach var="row" items="${result.rowsByIndex}">
             <tr>
                 <td><c:out value="${row[0]}" /></td>
-            <td><a href="show-assumption.jsp?id=${row[0]}"><c:out value="${row[1]}" /></a></td>
+            <td><a href="../hypotheses/show.jsp?id=${row[0]}"><c:out value="${row[1]}" /></a></td>
             </tr>
         </c:forEach>
     </table>
     <br>
-    <a href="add-assumption.jsp">Add new assumption</a>
+    <a href="../hypotheses/new.jsp?assumption_id=${param.id}">Add new hypothesis</a>
 </body>
 </html>
