@@ -18,23 +18,28 @@
         <title>Assumption</title>
     </head>
     <body>
-        <h1>Assumption #${param.id}</h1>
-    <sql:query var="result">
-        SELECT title, body, created from assumptions where id = ${param.id}
-    </sql:query>
-    <p><strong>${result.getRows()[0].title}</strong></p>
-    <p>${result.getRows()[0].body}</p>
-    
-    <sql:query var="result">
-        SELECT id, body from hypotheses where assumption_id = ${param.id}
-    </sql:query>
+        <h2>Assumption #${param.id}</h2>
+        <sql:query var="result">
+            SELECT title, body, created from assumptions where id = ${param.id}
+        </sql:query>
+        <p><strong>${result.getRows()[0].title}</strong></p>
+        <p>Created: ${result.getRows()[0].created}</p>
+        <ul><li>${result.getRows()[0].body}</li>
+        </ul>
+        <p><a href="edit.jsp?id=${param.id}">Edit assumption</a> | <a href="confirm.jsp?id=${param.id}">Delete assumption</a></p>
+        <br>
+        <!-- Hypotheses list -->
+        <sql:query var="result">
+            SELECT id, body from hypotheses where assumption_id = ${param.id}
+        </sql:query>
         <p><strong>Associated hypotheses</strong></p>
         <ol>
-        <c:forEach var="row" items="${result.rowsByIndex}">
-            <li><a href="../hypotheses/show.jsp?id=${row[0]}"><c:out value="${row[1]}" /></a></li>
-        </c:forEach>
+            <c:forEach var="row" items="${result.rowsByIndex}">
+                <li><a href="../hypotheses/show.jsp?id=${row[0]}"><c:out value="${row[1]}" /></a></li>
+                </c:forEach>
         </ol>
-    <br>
-    <a href="../hypotheses/new.jsp?assumption_id=${param.id}">Add new hypothesis</a>
-</body>
+        <p><a href="../hypotheses/new.jsp?assumption_id=${param.id}">Add new hypothesis</a></p>
+        <br>
+<p><a href="../index.jsp">Go back</a></p>
+    </body>
 </html>

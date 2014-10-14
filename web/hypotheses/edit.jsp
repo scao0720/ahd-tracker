@@ -5,19 +5,20 @@
                    user="root"  password=""/>
 
 <%-- 
-    Document   : change
-    Created on : Oct 14, 2014, 1:40:29 PM
+    Document   : edit
+    Created on : Oct 14, 2014, 2:32:29 PM
     Author     : Sabina
 --%>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Edit existing discovery</title>
+        <title>Edit existing hypothesis</title>
     </head>
     <body>
-        <h3>Edit discovery</h3>
+        <h3>Edit hypothesis</h3>
         <sql:query var="result">
-            SELECT body from discoveries
+            SELECT body from hypotheses
             WHERE id = ${param.id}
         </sql:query>
         <form action="update.jsp" method="post">

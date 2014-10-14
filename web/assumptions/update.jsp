@@ -3,15 +3,16 @@
 <sql:setDataSource driver="com.mysql.jdbc.Driver"
                    url="jdbc:mysql://localhost/ahd"
                    user="root"  password=""/>
+
 <%-- 
     Document   : update
-    Created on : Oct 14, 2014, 1:56:08 PM
+    Created on : Oct 14, 2014, 3:08:33 PM
     Author     : Sabina
 --%>
 
 <sql:update>
-    UPDATE discoveries
-    SET body = "${param.body}"
+    UPDATE assumptions
+    SET title = "${param.title}", body = "${param.body}"
     WHERE id = ${param.id}
 </sql:update>
 

@@ -25,7 +25,7 @@
         <p><strong>Assumptions</strong></p>
         <ol>
             <c:forEach var="row" items="${result.rowsByIndex}">
-                <li><a href="hypotheses/show.jsp?id=${row[0]}"><c:out value="${row[1]}" /></a></li>
+                <li><a href="assumptions/show.jsp?id=${row[0]}"><c:out value="${row[1]}" /></a></li>
                 </c:forEach>
         </ol>
     </table>

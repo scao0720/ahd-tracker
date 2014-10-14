@@ -18,14 +18,16 @@
         <title>Discoveries</title>
     </head>
     <body>
-        <h3>Discovery #${param.id}</h3>
+        <h2>Discovery #${param.id}</h2>
         <sql:query var="result">
             SELECT body, created from discoveries where id = ${param.id}
         </sql:query>
         <p>Created: ${result.getRows()[0].created}</p>
         <ul><li>${result.getRows()[0].body}</li>
         </ul>
-        <p><a href="edit.jsp?id=${param.id}">Edit discovery</a></p>
-        <p><a href="confirm.jsp?id=${param.id}">Delete discovery</a></p>
+        <p><a href="edit.jsp?id=${param.id}">Edit assumption</a> | <a href="confirm.jsp?id=${param.id}">Delete assumption</a></p>
+        <br>
+        <!-- STILL BROKEN -->
+        <p><a href="show.jsp?id="${param.hypothesis_id}">Go back</a></p>
     </body>
 </html>

@@ -3,6 +3,9 @@
     Created on : Oct 14, 2014, 1:23:29 PM
     Author     : Sabina
 --%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
     <form action="delete.jsp" method="post">
         <p>Are you sure you want to delete discovery #${param.id}?</p>
