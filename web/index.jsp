@@ -16,30 +16,20 @@
     </head>
     <body>
         <h2>Sabina's AHD Tracker</h2>
-        <div> List of assumptions
-        </div>
         <sql:setDataSource driver="com.mysql.jdbc.Driver"
                            url="jdbc:mysql://localhost/ahd"
                            user="root"  password=""/>
         <sql:query var="result">
             SELECT id, title from assumptions
         </sql:query>
-
-        <table border="1">
-            <!-- column headers -->
-            <tr>
-                <th>ID</th>
-                <th>Title</th> 
-            </tr>
-            <!-- column data -->
+        <p><strong>Assumptions</strong></p>
+        <ol>
             <c:forEach var="row" items="${result.rowsByIndex}">
-                <tr>
-                    <td><c:out value="${row[0]}" /></td>
-                    <td><a href="assumptions/show.jsp?id=${row[0]}"><c:out value="${row[1]}" /></a></td>
-                </tr>
-            </c:forEach>
-        </table>
-        <br>
-        <a href="assumptions/new.jsp">Add new assumption</a>
-    </body>
+                <li><a href="hypotheses/show.jsp?id=${row[0]}"><c:out value="${row[1]}" /></a></li>
+                </c:forEach>
+        </ol>
+    </table>
+    <br>
+    <a href="assumptions/new.jsp">Add new assumption</a>
+</body>
 </html>

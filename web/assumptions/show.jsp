@@ -28,17 +28,12 @@
     <sql:query var="result">
         SELECT id, body from hypotheses where assumption_id = ${param.id}
     </sql:query>
-    <table border="1">
-        <!-- column headers -->
-        <thead>
-        <th>Associated hypotheses</th>
-        <!-- column data -->
+        <p><strong>Associated hypotheses</strong></p>
+        <ol>
         <c:forEach var="row" items="${result.rowsByIndex}">
-            <tr>
-            <td><a href="../hypotheses/show.jsp?id=${row[0]}"><c:out value="${row[1]}" /></a></td>
-            </tr>
+            <li><a href="../hypotheses/show.jsp?id=${row[0]}"><c:out value="${row[1]}" /></a></li>
         </c:forEach>
-    </table>
+        </ol>
     <br>
     <a href="../hypotheses/new.jsp?assumption_id=${param.id}">Add new hypothesis</a>
 </body>

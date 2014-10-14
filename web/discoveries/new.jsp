@@ -24,8 +24,7 @@
             </div>
         </form>
         <br>
-        <!-- TODO-->
-        <a href="../hypotheses/show.jsp?">Go back</a>
+        <a href="../hypotheses/show.jsp?id=${param.hypothesis_id}">Go back</a>
     </body>
 </html>
 
