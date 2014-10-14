@@ -25,20 +25,16 @@
     <p><strong>${result.getRows()[0].title}</strong></p>
     <p>${result.getRows()[0].body}</p>
     
-    <h4>Associated hypotheses</h4>
     <sql:query var="result">
         SELECT id, body from hypotheses where assumption_id = ${param.id}
     </sql:query>
     <table border="1">
         <!-- column headers -->
-        <tr>
-            <th>ID</th>
-            <th>Body</th> 
-        </tr>
+        <thead>
+        <th>Associated hypotheses</th>
         <!-- column data -->
         <c:forEach var="row" items="${result.rowsByIndex}">
             <tr>
-                <td><c:out value="${row[0]}" /></td>
             <td><a href="../hypotheses/show.jsp?id=${row[0]}"><c:out value="${row[1]}" /></a></td>
             </tr>
         </c:forEach>

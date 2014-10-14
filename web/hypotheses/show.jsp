@@ -24,22 +24,18 @@
     </sql:query>
     <p><strong>${result.getRows()[0].title}</strong></p>
     <p>${result.getRows()[0].body}</p>
-    
-    <h4>Associated discoveries</h4>
+  
     <sql:query var="result">
         SELECT id, body from discoveries where hypothesis_id = ${param.id}
     </sql:query>
     <table border="1">
-        <!-- column headers -->
-        <tr>
-            <th>ID</th>
-            <th>Body</th> 
-        </tr>
+       <!-- column headers -->
+        <thead>
+        <th>Associated discoveries</th>
         <!-- column data -->
         <c:forEach var="row" items="${result.rowsByIndex}">
             <tr>
-                <td><c:out value="${row[0]}" /></td>
-            <td><a href="../discoveries/show.jsp?id=${row[0]}"><c:out value="${row[1]}" /></a></td>
+            <td><c:out value="${row[1]}" /></td>
             </tr>
         </c:forEach>
     </table>
