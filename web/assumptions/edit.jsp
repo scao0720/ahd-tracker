@@ -40,6 +40,6 @@
             </div>
         </form>
         <br>
-        <a href="show.jsp?id="${param.id}">Go back</a>
+        <a href="show.jsp?id=${param.id}">Go back</a>
     </body>
 </html>

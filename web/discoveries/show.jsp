@@ -25,9 +25,13 @@
         <p>Created: ${result.getRows()[0].created}</p>
         <ul><li>${result.getRows()[0].body}</li>
         </ul>
-        <p><a href="edit.jsp?id=${param.id}">Edit assumption</a> | <a href="confirm.jsp?id=${param.id}">Delete assumption</a></p>
+        <p><a href="edit.jsp?id=${param.id}">Edit discovery</a> | <a href="confirm.jsp?id=${param.id}">Delete discovery</a></p>
         <br>
         <!-- STILL BROKEN -->
-        <p><a href="show.jsp?id="${param.hypothesis_id}">Go back</a></p>
+        <sql:query var="result">
+            SELECT hypothesis_id from discoveries
+            WHERE id = ${param.id}
+        </sql:query>
+        <p><a href="../hypotheses/show.jsp?id=${result.getRows()[0].hypothesis_id}">Go back</a></p>
     </body>
 </html>

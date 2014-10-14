@@ -11,6 +11,6 @@
         <p>Are you sure you want to delete discovery #${param.id}?</p>
         <input type="submit" value="Yes, delete this discovery" />
         <input type="hidden" name="id" value="${param.id}"/>
-        <p><a href="../discoveries/show?id=${param.hypothesis_id}">No, go back</a><p>
+        <p><a href="show.jsp?id=${param.id}">No, go back</a></p>
     </form>
 </html>

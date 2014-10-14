@@ -5,18 +5,14 @@
                    user="root"  password=""/>
 
 <%-- 
-    Document   : remove
-    Created on : Oct 14, 2014, 1:23:22 PM
+    Document   : delete
+    Created on : Oct 14, 2014, 3:33:41 PM
     Author     : Sabina
 --%>
 
-<sql:query var="result">
-    SELECT hypothesis_id from discoveries
-    WHERE id = ${param.id}
-</sql:query>
 <sql:update>
-    DELETE FROM discoveries
+    DELETE FROM assumptions
     WHERE id = ${param.id}
 </sql:update>
-    <h2>You have successfully deleted the discovery.</h2>
-    <a href="../hypotheses/show.jsp?id=${result.getRows()[0].hypothesis_id}">Return to hypothesis</a>
+    <h2>You have successfully deleted the assumption.</h2>
+    <a href="../index.jsp">Return to index</a>

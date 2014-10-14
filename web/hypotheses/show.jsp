@@ -42,8 +42,11 @@
         <br>
         <p><a href="../discoveries/new.jsp?hypothesis_id=${param.id}">Add new discovery</a></p>
         <br>
-        <!-- STILL BROKEN -->
-        <p><a href="show.jsp?id="${param.assumption_id}">Go back</a></p>
+        <sql:query var="result">
+            SELECT assumption_id from hypotheses
+            WHERE id = ${param.id}
+        </sql:query>
+        <p><a href="../assumptions/show.jsp?id=${result.getRows()[0].assumption_id}">Go back</a></p>
     </body>
 </html>
 
