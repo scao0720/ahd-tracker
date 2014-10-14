@@ -14,7 +14,7 @@
     <body>
         <h3>Add new hypothesis</h3>
         <form action='create.jsp' method='post'>
-            <input type="hidden" value="${param.assumption_id}"/>
+            <input type="hidden" name="assumption_id" value="${param.assumption_id}"/>
             <div>
                 <textarea name="body" rows="4" cols="20"></textarea>
             </div>
@@ -25,7 +25,7 @@
         </form>
         <br>
         <!-- TODO-->
-        <a href=".jsp">Go back</a>
+        <a href="../assumptions/show.jsp?id="${param.assumption_id}">Go back</a>
     </body>
 </html>
 

@@ -13,18 +13,20 @@
     </head>
     <body>
         <h3>Add new discovery</h3>
-            <form action='response.jsp' method='post'>
-        <div>
-            <textarea name="body" rows="4" cols="20"></textarea>
-        </div>
+        <form action='create.jsp' method='post'>
+            <input type="hidden" name="hypothesis_id" value="${param.hypothesis_id}"/>
+            <div>
+                <textarea name="body" rows="4" cols="20"></textarea>
+            </div>
+            <br>
+            <div>
+                <input type="reset" value="Reset" /><input type="submit" value="Submit" />
+            </div>
+        </form>
         <br>
-        <div>
-            <input type="reset" value="Reset" /><input type="submit" value="Submit" />
-        </div>
-    </form>
-    <br>
-    <a href="show-hypothesis.jsp">Go back</a>
-</body>
+        <!-- TODO-->
+        <a href="../hypotheses/show.jsp?">Go back</a>
+    </body>
 </html>
 
 
